@@ -25,8 +25,12 @@ pub fn divisao_segura(a: i32, b: i32) -> Option<f32> {
 }
 
 pub fn break_ownership() {
-    let mut string_a = String::from("Hello, world!");
-    string_a.push_str("changing ownership!");
-    let string_b = string_a;
-    println!("{}", string_a);
+    let string_a = String::from("Hello, world!");
+    let mut string_b = string_a;
+    change_string(&mut string_b, "mutation inside move!");
+    println!("{}", string_b);
+}
+
+pub fn change_string(r: &mut String, to_push: &str) {
+    r.push_str(to_push);
 }
