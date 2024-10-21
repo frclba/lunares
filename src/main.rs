@@ -1,3 +1,5 @@
+use lunares::{divisao_segura, soma};
+
 fn main() {
     let a = 10;
     let b = 20;
@@ -9,16 +11,6 @@ fn main() {
         Some(valor) => println!("A divisão de {} por {} é {}", a, b, valor),
         None => println!("Não é possível dividir {} por {}", a, b),
     }
-}
-
-fn soma(a: i32, b: i32) -> i32 {
-    a + b
-}
-
-fn divisao_segura(a: i32, b: i32) -> Option<f32> {
-    if b == 0 {
-        None
-    } else {
-        Some(a as f32 / b as f32)
-    }
+    lunares::string_on_stack_and_heap();
+    lunares::break_ownership();
 }
