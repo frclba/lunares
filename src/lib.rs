@@ -1,5 +1,7 @@
 use core::str;
 pub mod diffie_hellman;
+pub mod lista_3;
+pub mod lista_4;
 
 pub fn string_on_stack_and_heap() {
     for i in 0..10 {
@@ -57,6 +59,8 @@ pub fn cloning_and_moving(first: String, second: String) {
     println!("Moved: {}", moved);
     println!("Cloned: {}", cloned);
 }
+
+
 
 #[cfg(test)]
 mod tests {
