@@ -1,0 +1,43 @@
+<!-- www/index.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora de Orçamento Pessoal</title>
+</head>
+
+<body>
+    <h1>Calculadora de Orçamento Pessoal</h1>
+    <form id="transaction-form">
+        <input type="text" id="description" placeholder="Descrição" required>
+        <input type="text" id="category" placeholder="Categoria" required>
+        <input type="number" id="amount" placeholder="Valor" required>
+        <input type="date" id="date" required>
+        <select id="transaction-type">
+            <option value="Income">Receita</option>
+            <option value="Expense">Despesa</option>
+        </select>
+        <button type="submit">Adicionar Transação</button>
+    </form>
+
+    <table id="transactions-table">
+        <thead>
+            <tr>
+                <th>Descrição</th>
+                <th>Categoria</th>
+                <th>Valor</th>
+                <th>Data</th>
+                <th>Tipo</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <p>Saldo Mensal: <span id="monthly-balance"></span></p>
+    <p>Previsão para o Próximo Mês: <span id="forecast"></span></p>
+
+    <script type="module" src="index.js"></script>
+</body>
+
+</html>
