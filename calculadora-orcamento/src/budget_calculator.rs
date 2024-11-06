@@ -18,11 +18,21 @@ pub fn calculate_three_month_average(
     current_month: u32,
     current_year: i32,
 ) -> f64 {
-    // TODO  Implementar cálculo da média dos últimos três meses
-    return 0.0;
+    let mut total = 0.0;
+    let mut count = 0;
+
+    for i in 0..3 {
+        let month = if current_month > i { current_month - i } else { 12 + current_month - i };
+        let year = if current_month > i { current_year } else { current_year - 1 };
+
+        let monthly_balance = calculate_monthly_balance(transactions, month, year);
+        total += monthly_balance;
+        count += 1;
+    }
+
+    total / count as f64
 }
 
 pub fn forecast_next_month_balance(average: f64) -> f64 {
-    // TODO - Implementar previsão com base na média
-    return 0.0;
+    average
 }
