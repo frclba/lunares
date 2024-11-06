@@ -41,6 +41,36 @@ pub fn calculate_three_month_average(
     total / count as f64
 }
 
-pub fn forecast_next_month_balance(average: f64) -> f64 {
-    average
+pub fn forecast_next_month_balance(
+    transactions: &[Transaction],
+    current_month: u32,
+    current_year: i32,
+) -> f64 {
+    let mut total_expense = 0.0;
+    let mut count = 0;
+
+    for i in 0..3 {
+        let month = if current_month > i {
+            current_month - i
+        } else {
+            12 + current_month - i
+        };
+        let year = if current_month > i {
+            current_year
+        } else {
+            current_year - 1
+        };
+
+        let monthly_expense: f64 = transactions
+            .iter()
+            .filter(|t| t.date.month() == month && t.date.year() == year)
+            .filter(|t| matches!(t.transaction_type, TransactionType::Expense))
+            .map(|t| t.amount)
+            .sum();
+
+        total_expense += monthly_expense;
+        count += 1;
+    }
+
+    total_expense / count as f64
 }
