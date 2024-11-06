@@ -41,11 +41,6 @@ pub fn calculate_three_month_average(
     total / count as f64
 }
 
-pub fn forecast_next_month_balance(
-    transactions: &[Transaction],
-    current_month: u32,
-    current_year: i32,
-) -> f64 {
-    let average = calculate_three_month_average(transactions, current_month, current_year);
+pub fn forecast_next_month_balance(average: f64) -> f64 {
     average
 }
