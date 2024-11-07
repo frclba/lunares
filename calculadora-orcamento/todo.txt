@@ -1,0 +1,10 @@
+- frontend
+ - upload csv
+ - dashboard ui to display graphs
+ - if transaction is credit card
+ - form to prompt user to add individual card transactions
+
+- backend
+ - thread to proccess csv
+ - create transactions for each row
+ - functions to calculate monthly and 3 month avg
