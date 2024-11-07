@@ -16,6 +16,17 @@ pub const extern "C" fn add(a: u32, b: u32) -> u32 {
     a + b
 }
 
+/// Adds two numbers.
+#[no_mangle]
+pub const extern "C" fn multiply(a: u32, b: u32) -> u32 {
+    a * b
+}
+
+#[no_mangle]
+pub const extern "C" fn power(a: u32, b: u32) -> u32 {
+    a.pow(b)
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -24,5 +35,9 @@ mod tests {
     fn it_works() {
         let result = add(2, 2);
         assert_eq!(result, 4);
+        let result = multiply(2, 4);
+        assert_eq!(result, 8);
+        let result2 = power(4, 2);
+        assert_eq!(result2, 16);
     }
 }
